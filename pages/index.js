@@ -6,7 +6,7 @@ export default function Home() {
       <Nav />
       <div className="py-20">
         <h1 className="text-5xl text-center text-gray-700 dark:text-gray-300">
-          Next.js Website Template
+          matootie
         </h1>
       </div>
     </div>

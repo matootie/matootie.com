@@ -1,7 +1,7 @@
 import Link from 'next/link'
 
 const links = [
-  { href: 'https://github.com/matootie/next.js', label: 'GitHub' }
+  { href: 'https://github.com/matootie', label: 'GitHub' }
 ]
 
 export default function Nav() {

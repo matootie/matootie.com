@@ -1,6 +1,6 @@
 {
-  "name": "next.js-template",
-  "version": "0.0.0-template",
+  "name": "matootie.com",
+  "version": "0.0.0",
   "scripts": {
     "develop": "next",
     "build": "next build",
