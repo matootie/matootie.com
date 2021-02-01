@@ -1,3 +1,5 @@
-# Next.js Website Template
+# 📖 My Personal Website
 
-A template project for a Next.js website, with Tailwind CSS.
+A website for my online resumé, portfolio, blog and anything else really...
+
+**This project is a work in progress. Come back later to see the final result!**
