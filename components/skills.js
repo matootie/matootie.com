@@ -1,155 +1,227 @@
 import { SiAdobexd, SiAzurefunctions, SiBitbucket, SiBootstrap, SiCss3, SiDigitalocean, SiDjango, SiDocker, SiFlask, SiGithubactions, SiHeroku, SiHtml5, SiJava, SiJavascript, SiKubernetes, SiMongodb, SiNetlify, SiNextDotJs, SiNodeDotJs, SiNuxtDotJs, SiPostgresql, SiPython, SiReact, SiRedis, SiSass, SiServerless, SiStrapi, SiSwift, SiTailwindcss, SiTravisci, SiVueDotJs } from 'react-icons/si'
-import styles from '../styles/skills.module.scss'
+import styles from '../styles/skills.module.css'
 
 const types = [
   {
-    type: 'Languages',
+    name: 'Languages',
     skills: [
-      'Python',
-      'Node.js',
-      'Swift',
-      'Java',
-      'C#'
+      {
+        name: 'Python',
+        color: '#F7CC40',
+        Icon: SiPython
+      },
+      {
+        name: 'Node.js',
+        color: '#90C640',
+        Icon: SiNodeDotJs
+      },
+      {
+        name: 'Swift',
+        color: '#F22C27',
+        Icon: SiSwift
+      },
+      {
+        name: 'Java',
+        color: '#D74739',
+        Icon: SiJava
+      }
     ]
   },
   {
-    type: 'Frameworks',
+    name: 'Frameworks',
     skills: [
-      'Django',
-      'Flask',
-      'Starlette',
-      'Express',
-      'React',
-      'Next.js',
-      'Vue',
-      'Nuxt.js',
-      'Strapi',
-      'Vapor',
-      'Kitura'
+      {
+        name: 'Next.js',
+        color: '#90C640',
+        Icon: SiNextDotJs
+      },
+      {
+        name: 'Express',
+        color: '#90C640',
+        Icon: SiNodeDotJs
+      },
+      {
+        name: 'Django',
+        color: '#0B2D1E',
+        Icon: SiDjango
+      },
+      {
+        name: 'Flask',
+        color: '#F7CC40',
+        Icon: SiFlask
+      },
+      {
+        name: 'Starlette',
+        color: '#F7CC40',
+        Icon: SiPython
+      },
+      {
+        name: 'React',
+        color: '#23D7FE',
+        Icon: SiReact
+      },
+      {
+        name: 'Nuxt.js',
+        color: '#4CAB80',
+        Icon: SiNuxtDotJs
+      },
+      {
+        name: 'Vue',
+        color: '#40B681',
+        Icon: SiVueDotJs
+      },
+      {
+        name: 'Strapi',
+        color: '#90C640',
+        Icon: SiStrapi
+      }
     ]
   },
   {
-    type: 'ORM',
+    name: 'Databases',
     skills: [
-      'Peewee',
-      'SQLAlchemy',
-      'Sequelize'
+      {
+        name: 'Redis',
+        color: '#CB2027',
+        Icon: SiRedis
+      },
+      {
+        name: 'PostgreSQL',
+        color: '#34638F',
+        Icon: SiPostgresql
+      },
+      {
+        name: 'MongoDB',
+        color: '#56A74E',
+        Icon: SiMongodb
+      }
     ]
   },
   {
-    type: 'Cloud',
+    name: 'Cloud',
     skills: [
-      'Docker',
-      'Kubernetes',
-      'Serverless',
-      'Azure',
-      'AWS',
-      'DigitalOcean',
-      'Netlify',
-      'Heroku'
+      {
+        name: 'Docker',
+        color: '#1C83C3',
+        Icon: SiDocker
+      },
+      {
+        name: 'Kubernetes',
+        color: '#3361DD',
+        Icon: SiKubernetes
+      },
+      {
+        name: 'Serverless',
+        color: '#EB5253',
+        Icon: SiServerless
+      },
+      {
+        name: 'Azure Functions',
+        color: '#F9CD19',
+        Icon: SiAzurefunctions
+      },
+      {
+        name: 'DigitalOcean',
+        color: '#0E77F9',
+        Icon: SiDigitalocean
+      },
+      {
+        name: 'Netlify',
+        color: '#20C4B2',
+        Icon: SiNetlify
+      },
+      {
+        name: 'Heroku',
+        color: '#7B5CA1',
+        Icon: SiHeroku
+      }
     ]
   },
   {
-    type: 'Databases',
+    name: 'CI/CD',
     skills: [
-      'Redis',
-      'PostgreSQL',
-      'MongoDB',
-      'SQLite',
-      'DynamoDB'
+      {
+        name: 'GitHub Actions',
+        color: '#2C80F4',
+        Icon: SiGithubactions
+      },
+      {
+        name: 'Travis CI',
+        color: '#ECE0A3',
+        Icon: SiTravisci
+      },
+      {
+        name: 'Bitbucket Pipelines',
+        color: '#297BF7',
+        Icon: SiBitbucket
+      }
     ]
   },
   {
-    type: 'CI/CD',
+    name: 'Design',
     skills: [
-      'GitHub Actions',
-      'Travis CI',
-      'Bitbucket Pipelines'
-    ]
-  },
-  {
-    type: 'Design',
-    skills: [
-      'Bootstrap',
-      'SASS & LESS',
-      'HTML, CSS & JS',
-      'Tailwind CSS',
-      'Adobe XD'
+      {
+        name: 'Tailwind CSS',
+        color: '#27BBB6',
+        Icon: SiTailwindcss
+      },
+      {
+        name: 'Bootstrap',
+        color: '#7C3EC8',
+        Icon: SiBootstrap
+      },
+      {
+        name: 'SASS',
+        color: '#C45E94',
+        Icon: SiSass
+      },
+      {
+        name: 'HTML',
+        color: '#E7592B',
+        Icon: SiHtml5
+      },
+      {
+        name: 'CSS',
+        color: '#1384CD',
+        Icon: SiCss3
+      },
+      {
+        name: 'JavaScript',
+        color: '#E9D84E',
+        Icon: SiJavascript
+      },
+      {
+        name: 'Adobe XD',
+        color: '#EE48E7',
+        Icon: SiAdobexd
+      }
     ]
   }
 ]
 
 export default function Skills() {
   return (
-    <div className="p-2 grid grid-cols-2 gap-4">
-      <div className={styles.container}>
-        <h1 className={styles.title}>Languages</h1>
-        <ul className={styles.skillgroup}>
-          <li className={styles.skill}><SiPython style={{ color: '#F7CC40' }} className={styles.icon} />Python</li>
-          <li className={styles.skill}><SiNodeDotJs style={{ color: '#90C640' }} className={styles.icon} />Node.js</li>
-          <li className={styles.skill}><SiSwift style={{ color: '#F22C27' }} className={styles.icon} />Swift</li>
-          <li className={styles.skill}><SiJava style={{ color: '#D74739' }} className={styles.icon} />Java</li>
-        </ul>
-      </div>
-
-      <div className={styles.container}>
-        <h1 className={styles.title}>Frameworks</h1>
-        <ul className={styles.skillgroup}>
-          <li className={styles.skill}><SiNextDotJs style={{ color: '#90C640' }} className={styles.icon} />Next.js</li>
-          <li className={styles.skill}><SiNodeDotJs style={{ color: '#90C640' }} className={styles.icon} />Express</li>
-          <li className={styles.skill}><SiDjango style={{ color: '#0B2D1E' }} className={styles.icon} />Django</li>
-          <li className={styles.skill}><SiFlask style={{ color: '#F7CC40' }} className={styles.icon} />Flask</li>
-          <li className={styles.skill}><SiPython style={{ color: '#F7CC40' }} className={styles.icon} />Starlette</li>
-          <li className={styles.skill}><SiReact style={{ color: '#23D7FE' }} className={styles.icon} />React</li>
-          <li className={styles.skill}><SiNuxtDotJs style={{ color: '#4CAB80' }} className={styles.icon} />Nuxt.js</li>
-          <li className={styles.skill}><SiVueDotJs style={{ color: 'ffff00' }} className={styles.icon} />Vue</li>
-          <li className={styles.skill}><SiStrapi style={{ color: 'ffff00' }} className={styles.icon} />Strapi</li>
-        </ul>
-      </div>
-
-      <div className={styles.container}>
-        <h1 className={styles.title}>Databases</h1>
-        <ul className={styles.skillgroup}>
-          <li className={styles.skill} style={{ backgroundColor: '#ffff00' }}><SiRedis className={styles.icon} />Redis</li>
-          <li className={styles.skill} style={{ backgroundColor: '#ffff00' }}><SiPostgresql className={styles.icon} />PostgreSQL</li>
-          <li className={styles.skill} style={{ backgroundColor: '#ffff00' }}><SiMongodb className={styles.icon} />MongoDB</li>
-        </ul>
-      </div>
-
-      <div className={styles.container}>
-        <h1 className={styles.title}>Cloud</h1>
-        <ul className={styles.skillgroup}>
-          <li className={styles.skill} style={{ backgroundColor: '#ffff00' }}><SiDocker className={styles.icon} />Docker</li>
-          <li className={styles.skill} style={{ backgroundColor: '#ffff00' }}><SiKubernetes className={styles.icon} />Kubernetes</li>
-          <li className={styles.skill} style={{ backgroundColor: '#ffff00' }}><SiServerless className={styles.icon} />Serverless</li>
-          <li className={styles.skill} style={{ backgroundColor: '#ffff00' }}><SiAzurefunctions className={styles.icon} />Azure Functions</li>
-          <li className={styles.skill} style={{ backgroundColor: '#ffff00' }}><SiDigitalocean className={styles.icon} />DigitalOcean</li>
-          <li className={styles.skill} style={{ backgroundColor: '#ffff00' }}><SiNetlify className={styles.icon} />Netlify</li>
-          <li className={styles.skill} style={{ backgroundColor: '#ffff00' }}><SiHeroku className={styles.icon} />Heroku</li>
-        </ul>
-      </div>
-
-      <div className={styles.container}>
-        <h1 className={styles.title}>CI/CD</h1>
-        <ul className={styles.skillgroup}>
-          <li className={styles.skill} style={{ backgroundColor: '#ffff00' }}><SiGithubactions className={styles.icon} />GitHub Actions</li>
-          <li className={styles.skill} style={{ backgroundColor: '#ffff00' }}><SiTravisci className={styles.icon} />Travis CI</li>
-          <li className={styles.skill} style={{ backgroundColor: '#ffff00' }}><SiBitbucket className={styles.icon} />Bitbucket Pipelines</li>
-        </ul>
-      </div>
-
-      <div className={styles.container}>
-        <h1 className={styles.title}>Design</h1>
-        <ul className={styles.skillgroup}>
-          <li className={styles.skill} style={{ backgroundColor: '#ffff00' }}><SiTailwindcss className={styles.icon} />Tailwind CSS</li>
-          <li className={styles.skill} style={{ backgroundColor: '#ffff00' }}><SiBootstrap className={styles.icon} />Bootstrap</li>
-          <li className={styles.skill} style={{ backgroundColor: '#ffff00' }}><SiSass className={styles.icon} />SASS</li>
-          <li className={styles.skill} style={{ backgroundColor: '#ffff00' }}><SiHtml5 className={styles.icon} />HTML</li>
-          <li className={styles.skill} style={{ backgroundColor: '#ffff00' }}><SiCss3 className={styles.icon} />CSS</li>
-          <li className={styles.skill} style={{ backgroundColor: '#ffff00' }}><SiJavascript className={styles.icon} />JavaScript</li>
-          <li className={styles.skill} style={{ backgroundColor: '#ffff00' }}><SiAdobexd className={styles.icon} />Adobe XD</li>
-        </ul>
-      </div>
+    <div className={styles.overview}>
+      {types.map((type) => (
+        <div className={styles.griditem}>
+          <div className={styles.container}>
+            <h1 className={styles.title}>{type.name}</h1>
+            <ul className={styles.skillgroup}>
+              {type.skills.map((skill) => (
+                <li
+                  className={styles.skill}
+                >
+                  <skill.Icon
+                    className={styles.icon}
+                    style={{ color: skill.color }}
+                  />
+                  {skill.name}
+                </li>
+              ))}
+            </ul>
+          </div>
+        </div>
+      ))}
     </div>
   )
 }
