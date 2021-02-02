@@ -1,7 +1,0 @@
-.skill {
-  filter: saturate(0);
-}
-
-.skill:hover {
-  filter:saturate(1);
-}

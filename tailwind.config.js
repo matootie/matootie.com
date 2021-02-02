@@ -4,15 +4,11 @@ module.exports = {
     './pages/**/*.{js,ts,jsx,tsx}'
   ],
   darkMode: 'class',
-  theme: {
-    extend: {
-      colors: {
-        'accent-1': '#333'
-      }
-    }
-  },
+  theme: {},
   variants: {
-    extend: {}
+    extend: {
+      translate: ['group-hover']
+    }
   },
   plugins: []
 }
