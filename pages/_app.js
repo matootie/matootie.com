@@ -1,7 +1,5 @@
-import '../styles/index.css'
+import 'styles/index.css'
 
-function Website({ Component, pageProps }) {
+export default function Website({ Component, pageProps }) {
   return <Component {...pageProps} />
 }
-
-export default Website
