@@ -4,7 +4,6 @@
   "description": "matootie's website.",
   "scripts": {
     "develop": "next",
-    "prebuild": "git lfs fetch origin --all",
     "build": "next build",
     "postbuild": "echo Hello, world!",
     "start": "next start"
