@@ -1,14 +1,17 @@
 import axios from "axios"
 import { withPageAuthRequired } from "@auth0/nextjs-auth0"
-import Content from "components/content"
+import Navigation from "components/forum/navigation"
 
 export default function UserPage({ user }) {
   return (
-    <Content>
-      <h1>{user.nickname}</h1>
-      <p>{user.name}</p>
-      <img src={user.picture} />
-    </Content>
+    <div>
+      <Navigation />
+      <div className="py-20">
+        <h1>{user.nickname}</h1>
+        <p>{user.name}</p>
+        <img src={user.picture} />
+      </div>
+    </div>
   )
 }
 
