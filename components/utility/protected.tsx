@@ -1,9 +1,14 @@
+import React from 'react'
 import { withPageAuthRequired } from '@auth0/nextjs-auth0'
 
-function Protected(props) {
+function Protected({
+  children
+}: {
+  children: React.ReactNode
+}) {
   return (
     <>
-      {props.children}
+      {children}
     </>
   )
 }

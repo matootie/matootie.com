@@ -1,3 +1,4 @@
+import { GetServerSideProps } from "next"
 import Head from "next/head"
 import { withPageAuthRequired } from "@auth0/nextjs-auth0"
 import Navigation from "components/forum/navigation"
@@ -18,7 +19,7 @@ export default function Forum() {
   )
 }
 
-export const getServerSideProps = withPageAuthRequired({
+export const getServerSideProps: GetServerSideProps = withPageAuthRequired({
   async getServerSideProps(context) {
     return {
       props: {
