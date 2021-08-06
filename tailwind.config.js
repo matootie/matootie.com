@@ -1,14 +1,10 @@
 module.exports = {
-  purge: [
-    './components/**/*.{js,ts,jsx,tsx}',
-    './pages/**/*.{js,ts,jsx,tsx}'
-  ],
-  darkMode: 'class',
+  mode: "jit",
+  purge: ["./components/**/*.{js,ts,jsx,tsx}", "./pages/**/*.{js,ts,jsx,tsx}"],
+  darkMode: "class",
   theme: {},
   variants: {
-    extend: {
-      translate: ['group-hover']
-    }
+    extend: {},
   },
-  plugins: []
+  plugins: [],
 }
