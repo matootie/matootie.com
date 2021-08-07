@@ -1,7 +1,7 @@
 import { GetStaticProps } from "next"
 import Head from "next/head"
 import Image from "next/image"
-import { PageMeta, HomePage } from "@lib/pages"
+import { PageMeta, getPageMeta, HomePage, getHomePage } from "@lib/pages"
 import logo from "@public/logo.png"
 
 interface HomeProps {
@@ -10,23 +10,14 @@ interface HomeProps {
 }
 
 export const getStaticProps: GetStaticProps<HomeProps> = async () => {
-  const meta: PageMeta = {
-    title: "Aspiring Computer Guru",
-    description: "Hi, my name is matootie. Well, it's not my real name, but it's what everyone calls me. This is my website. I'm a software developer and a hobbyist content creator. I like working with startups, making music, and learning new things.",
-    type: "website",
-    url: "https://matootie.com",
-    image: "https://matootie.com/banner.png",
-    siteName: "matootie.com",
-    twitter: "@matootweet",
-  }
-  const data: HomePage = {
-    title: "Hello, world!"
-  }
+  const meta = await getPageMeta("home")
+  const data = await getHomePage()
   return {
     props: {
       meta,
       data,
     },
+    revalidate: 10,
   }
 }
 

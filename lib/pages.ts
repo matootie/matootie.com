@@ -1,4 +1,4 @@
-import { Config, getConfig, getItem, sanitize } from "@lib/common"
+import { Config, get, getConfig } from "@lib/common"
 
 export interface PageMeta extends Config {
   title: string
@@ -9,17 +9,17 @@ export interface PageMeta extends Config {
 }
 
 export async function getPageMeta(page: string): Promise<PageMeta> {
-  const item = await getItem("pages", page)
+  const data = await get(page)
   const config = await getConfig()
   const result: PageMeta = {
-    title: item.data.meta.title,
-    description: item.data.meta.description,
-    type: item.data.meta.type,
-    url: item.data.meta.url,
-    image: item.data.meta.image || "/banner.png",
+    title: data.meta.title,
+    description: data.meta.description,
+    url: data.meta.url,
+    image: data.meta.image.url || "/banner.png",
+    type: "website",
     ...config,
   }
-  return sanitize(result)
+  return result
 }
 
 export interface HomePage {
@@ -27,9 +27,9 @@ export interface HomePage {
 }
 
 export async function getHomePage(): Promise<HomePage> {
-  const item = await getItem("pages", "home")
+  const data = await get("home")
   const result: HomePage = {
-    title: item.data.title,
+    title: data.title,
   }
-  return sanitize(result)
+  return result
 }
