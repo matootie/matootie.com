@@ -2,7 +2,7 @@ import { GetStaticProps } from "next"
 import Head from "next/head"
 import Image from "next/image"
 import Script from "next/script"
-import { getHomePage, getPageMeta, HomePage, PageMeta } from "@lib/pages"
+import { PageMeta, HomePage } from "@lib/pages"
 
 interface HomeProps {
   meta: PageMeta
@@ -10,8 +10,18 @@ interface HomeProps {
 }
 
 export const getStaticProps: GetStaticProps<HomeProps> = async () => {
-  const meta = await getPageMeta("home")
-  const data = await getHomePage()
+  const meta: PageMeta = {
+    title: "Aspiring Computer Guru",
+    description: "Hi, my name is matootie. Well, it's not my real name, but it's what everyone calls me. This is my website. I'm a software developer and a hobbyist content creator. I like working with startups, making music, and learning new things.",
+    type: "website",
+    url: "https://matootie.com",
+    image: "https://matootie.com/banner.png",
+    siteName: "matootie.com",
+    twitter: "@matootweet",
+  }
+  const data: HomePage = {
+    title: "Hello, world!"
+  }
   return {
     props: {
       meta,
@@ -39,10 +49,6 @@ export default function Home({ meta, data }: HomeProps) {
         <meta name="twitter:description" content={meta.description} />
         <meta name="twitter:image" content={meta.image} />
       </Head>
-      <Script
-        src="https://identity.netlify.com/v1/netlify-identity-widget.js"
-        strategy="beforeInteractive"
-      />
       <div className="flex flex-col justify-center items-center h-screen">
         <h1 className="text-gray-800 font-bold text-4xl mb-7">{data.title}</h1>
         <Image
