@@ -1,6 +1,6 @@
 backend:
   name: git-gateway
-  branch: main
+  branch: trunk
 media_folder: public/uploads
 public_folder: uploads
 site_url: https://matootie.com
