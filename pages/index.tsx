@@ -47,7 +47,7 @@ export default function Home({ meta, data }: HomeProps) {
           objectFit="contain"
           width={100}
           height={100}
-          placeholder="blur"
+          priority={true}
           alt="matootie's logo, the blue grapes."
         />
       </div>
