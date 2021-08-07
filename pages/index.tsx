@@ -1,8 +1,8 @@
 import { GetStaticProps } from "next"
 import Head from "next/head"
 import Image from "next/image"
-import Script from "next/script"
 import { PageMeta, HomePage } from "@lib/pages"
+import logo from "@public/logo.png"
 
 interface HomeProps {
   meta: PageMeta
@@ -52,9 +52,11 @@ export default function Home({ meta, data }: HomeProps) {
       <div className="flex flex-col justify-center items-center h-screen">
         <h1 className="text-gray-800 font-bold text-4xl mb-7">{data.title}</h1>
         <Image
+          src={logo}
+          objectFit="contain"
           width={100}
           height={100}
-          src="/logo.png"
+          placeholder="blur"
           alt="matootie's logo, the blue grapes."
         />
       </div>
