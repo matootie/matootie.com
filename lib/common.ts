@@ -13,9 +13,7 @@ export async function getConfig(): Promise<Config> {
   return result
 }
 
-export async function get(
-  path: string,
-): Promise<any> {
+export async function get(path: string): Promise<any> {
   const url = `https://${API_DOMAIN}/${path}`
   const response = await fetch(url)
   const data = await response.json()
