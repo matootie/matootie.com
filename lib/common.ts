@@ -1,4 +1,4 @@
-const API_DOMAIN = process.env.API_DOMAIN || "localhost:1337"
+const API_URL = process.env.API_URL || "http://localhost:1337"
 
 export interface Config {
   siteName: string
@@ -6,16 +6,33 @@ export interface Config {
 }
 
 export async function getConfig(): Promise<Config> {
+  const data = await api(`
+    query {
+      config {
+        name
+        twitter
+      }
+    }
+  `)
   const result: Config = {
-    siteName: "matootie.com",
-    twitter: "@matootweet",
+    siteName: data.config.name,
+    twitter: data.config.twitter,
   }
   return result
 }
 
-export async function get(path: string): Promise<any> {
-  const url = `https://${API_DOMAIN}/${path}`
-  const response = await fetch(url)
+export async function api(query: string, variables?: any): Promise<any> {
+  const url = `${API_URL}/graphql`
+  const response = await fetch(url, {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify({
+      query,
+      variables,
+    }),
+  })
   const data = await response.json()
-  return data
+  return data.data
 }

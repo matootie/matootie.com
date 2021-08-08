@@ -1,4 +1,4 @@
-import { Config, get, getConfig } from "@lib/common"
+import { Config, api, getConfig } from "@lib/common"
 
 export interface PageMeta extends Config {
   title: string
@@ -9,13 +9,26 @@ export interface PageMeta extends Config {
 }
 
 export async function getPageMeta(page: string): Promise<PageMeta> {
-  const data = await get(page)
+  const data = await api(`
+    query {
+      ${page} {
+        meta {
+          title
+          description
+          url
+          image {
+            url
+          }
+        }
+      }
+    }
+  `)
   const config = await getConfig()
   const result: PageMeta = {
-    title: data.meta.title,
-    description: data.meta.description,
-    url: data.meta.url,
-    image: data.meta.image.url || "/banner.png",
+    title: data.home.meta.title,
+    description: data.home.meta.description,
+    url: data.home.meta.url,
+    image: data.home.meta.image.url || "/banner.png",
     type: "website",
     ...config,
   }
@@ -27,9 +40,15 @@ export interface HomePage {
 }
 
 export async function getHomePage(): Promise<HomePage> {
-  const data = await get("home")
+  const data = await api(`
+    query {
+      home {
+        title
+      }
+    }
+  `)
   const result: HomePage = {
-    title: data.title,
+    title: data.home.title,
   }
   return result
 }
