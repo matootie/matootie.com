@@ -36,3 +36,15 @@ export async function api(query: string, variables?: any): Promise<any> {
   const data = await response.json()
   return data.data
 }
+
+export async function restGet(path: string): Promise<any> {
+  const url = `${API_URL}${path}`
+  const response = await fetch(url, {
+    method: "GET",
+    headers: {
+      "Content-Type": "application/json",
+    },
+  })
+  const data = await response.json()
+  return data.data
+}

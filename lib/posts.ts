@@ -1,68 +1,48 @@
-import { api } from "@lib/common"
+import { api, restGet } from "@lib/common"
+import { remark } from "remark"
+import html from "remark-html"
 
 export interface Post {
-  title: string
-  slug: string
-  tags: Tag[]
+  id: number
+  body: string
+  published: string
 }
 
-export interface Tag {
-  label: string
-  colour: string
+interface GetPostsOptions {
+  limit?: number
+  offset?: number
 }
 
-export async function getPost(slug: string | string[]): Promise<Post | null> {
+export async function getPosts({
+  limit = 2,
+  offset = 0,
+}: GetPostsOptions): Promise<Post[]> {
   const data = await api(`
     query {
-      posts(
-        where:{
-          slug:"${slug}"
-        }
-        limit:1
+      messages(
+        sort:"created_at:DESC",
+        limit:${limit},
+        start:${offset}
       ) {
-        title
-        slug
-      }
-    }
-  `)
-  if (!data.posts[0]) {
-    return null
-  }
-  const post: Post = {
-    title: data.posts[0].title,
-    slug: data.posts[0].slug,
-    tags: []
-  }
-  return post
-}
-
-export async function getPosts(): Promise<Post[]> {
-  const data = await api(`
-    query {
-      posts {
-        title
-        slug
-        tags {
-          label
-          colour
-        }
+        body
+        id
+        created_at
       }
     }
   `)
   const posts: Post[] = []
-  for (const post of data.posts) {
-    const result: Post = {
-      title: post.title,
-      slug: post.slug,
-      tags: []
-    }
-    for (const tag of post.tags) {
-      result.tags.push({
-        label: tag.label,
-        colour: tag.colour,
-      })
-    }
-    posts.push(result)
+  for (const message of data.messages) {
+    const content = await remark().use(html).process(message.body)
+    posts.push({
+      id: message.id,
+      body: content.toString(),
+      published: message.created_at,
+    })
   }
   return posts
+}
+
+export async function getPostsCount(): Promise<number> {
+  const result = await restGet("/messages/count")
+  return result
 }
