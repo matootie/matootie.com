@@ -27,6 +27,7 @@ export const getStaticProps: GetStaticProps<ProjectProps, { slug: string }> =
         ...result,
         slug: params.slug,
       },
+      revalidate: 10,
     }
   }
 
