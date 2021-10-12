@@ -1,4 +1,3 @@
-import { useEffect, useState } from "react"
 import { GetStaticProps } from "next"
 import Image from "next/image"
 import { PageMeta, getPageMeta, HomePage, getHomePage } from "@lib/pages"

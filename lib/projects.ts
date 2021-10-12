@@ -7,6 +7,7 @@ export interface GetAllProjectsOutput {
   projects: {
     slug: string
     name: string
+    descriptionPlain: string
   }[]
 }
 
@@ -16,9 +17,20 @@ export async function getAllProjects(): Promise<GetAllProjectsOutput> {
       projects {
         slug
         name
+        description
       }
     }
   `)
+  for (let i = 0; i < response.projects.length; i++) {
+    // Process the project description.
+    let plain = (
+      await remark().use(plaintext).process(response.projects[i].description)
+    ).toString()
+    if (plain.length > 160) {
+      plain = `${plain.substring(0, 497)}...`
+    }
+    response.projects[i].descriptionPlain = plain.trim()
+  }
   return response as GetAllProjectsOutput
 }
 

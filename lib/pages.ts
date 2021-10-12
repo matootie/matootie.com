@@ -1,4 +1,6 @@
 import { Config, api, getConfig } from "@lib/common"
+import { remark } from "remark"
+import html from "remark-html"
 
 export interface PageMeta extends Config {
   title: string
@@ -67,5 +69,6 @@ export async function getProjectsOverviewPage(): Promise<ProjectsOverviewPage> {
       }
     }
   `)
+  data.body = (await remark().use(html).process(data.body)).toString()
   return data.projectsOverview as ProjectsOverviewPage
 }

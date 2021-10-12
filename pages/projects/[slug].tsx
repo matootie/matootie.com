@@ -7,8 +7,10 @@ import {
   getOneProject,
   GetOneProjectOutput,
 } from "@lib/projects"
-import Layout from "@components/layout"
 import { PageMeta } from "@lib/pages"
+
+import Layout from "@components/layout"
+import Breadcrumbs from "@components/breadcrumbs"
 
 interface ProjectProps extends GetOneProjectOutput {
   slug: string
@@ -55,8 +57,23 @@ export default function Project(project: ProjectProps) {
     siteName: "matootie.com",
     twitter: "@matootweet",
   }
+
+  const links = [
+    {
+      name: "Projects",
+      href: "/projects",
+      current: false,
+    },
+    {
+      name: project.name,
+      href: `/projects/${project.slug}`,
+      current: true,
+    },
+  ]
+
   return (
     <Layout meta={meta}>
+      <Breadcrumbs links={links} />
       <div className="relative py-16 bg-white overflow-hidden">
         <div className="relative px-4 sm:px-6 lg:px-8">
           <div className="text-lg max-w-prose mx-auto">
@@ -66,7 +83,7 @@ export default function Project(project: ProjectProps) {
           </div>
           {project.description && (
             <div
-              className="mt-6 prose prose-pink prose-lg text-gray-500 mx-auto"
+              className="mt-6 prose prose-lg text-gray-500 mx-auto"
               dangerouslySetInnerHTML={{ __html: project.description }}
             />
           )}
