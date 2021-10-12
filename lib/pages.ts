@@ -25,10 +25,10 @@ export async function getPageMeta(page: string): Promise<PageMeta> {
   `)
   const config = await getConfig()
   const result: PageMeta = {
-    title: data.home.meta.title,
-    description: data.home.meta.description,
-    url: data.home.meta.url,
-    image: data.home.meta.image.url || "/banner.png",
+    title: data[page].meta.title,
+    description: data[page].meta.description,
+    url: data[page].meta.url,
+    image: data[page].meta.image.url || "/banner.png",
     type: "website",
     ...config,
   }
@@ -51,4 +51,21 @@ export async function getHomePage(): Promise<HomePage> {
     title: data.home.title,
   }
   return result
+}
+
+export interface ProjectsOverviewPage {
+  title: string
+  body: string
+}
+
+export async function getProjectsOverviewPage(): Promise<ProjectsOverviewPage> {
+  const data = await api(`
+    query {
+      projectsOverview {
+        title
+        body
+      }
+    }
+  `)
+  return data.projectsOverview as ProjectsOverviewPage
 }
