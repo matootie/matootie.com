@@ -44,7 +44,7 @@ export default function Projects({ meta, data, projects }: ProjectsProps) {
       <Breadcrumbs links={links} />
       <div className="relative px-4 sm:px-6 lg:px-8 mt-16 mb-10">
         <div className="text-lg max-w-prose mx-auto">
-          <h1 className="mt-2 block text-4xl text-center leading-8 font-extrabold tracking-tight text-gray-900 sm:text-5xl">
+          <h1 className="mt-2 block text-4xl text-center leading-10 font-extrabold tracking-tight text-gray-900 sm:text-5xl">
             {data.title}
           </h1>
         </div>
@@ -56,12 +56,14 @@ export default function Projects({ meta, data, projects }: ProjectsProps) {
         )}
       </div>
       {projects.projects.length > 0 && (
-        <div className="flex flex-col space-y-12 py-10 px-4 post-list max-w-3xl mx-auto">
+        <div className="grid sm:grid-cols-2 gap-4 py-10 px-4 post-list max-w-3xl mx-auto">
           {projects.projects.map((project) => (
             <Link key={project.slug} href={`/projects/${project.slug}`}>
-              <a>
-                <h3>{project.name}</h3>
-                <p className="text-gray-500">{project.descriptionPlain}</p>
+              <a className="border border-blue-600 border-opacity-10 shadow rounded-xl p-4 transform hover:-translate-y-1 transition-transform">
+                <h3 className="text-xl font-bold mb-1">{project.name}</h3>
+                <p className="text-gray-500 line-clamp-4">
+                  {project.descriptionPlain}
+                </p>
               </a>
             </Link>
           ))}

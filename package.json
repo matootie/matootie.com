@@ -24,6 +24,7 @@
     "remark-plain-text": "^0.2.0"
   },
   "devDependencies": {
+    "@tailwindcss/line-clamp": "^0.2.2",
     "@tailwindcss/typography": "^0.4.1",
     "@types/ioredis": "^4.26.7",
     "@types/node": "^16.4.13",
