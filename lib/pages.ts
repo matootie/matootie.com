@@ -72,3 +72,21 @@ export async function getProjectsOverviewPage(): Promise<ProjectsOverviewPage> {
   data.body = (await remark().use(html).process(data.body)).toString()
   return data.projectsOverview as ProjectsOverviewPage
 }
+
+export interface UpdatesOverviewPage {
+  title: string
+  body: string
+}
+
+export async function getUpdatesOverviewPage(): Promise<UpdatesOverviewPage> {
+  const data = await api(`
+    query {
+      updatesOverview {
+        title
+        body
+      }
+    }
+  `)
+  data.body = (await remark().use(html).process(data.body)).toString()
+  return data.updatesOverview as UpdatesOverviewPage
+}

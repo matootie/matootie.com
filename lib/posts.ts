@@ -1,6 +1,8 @@
-import { api, restGet } from "@lib/common"
 import { remark } from "remark"
 import html from "remark-html"
+import moment from "moment"
+
+import { api, restGet } from "@lib/common"
 
 export interface Post {
   id: number
@@ -36,7 +38,7 @@ export async function getPosts({
     posts.push({
       id: message.id,
       body: content.toString(),
-      published: message.created_at,
+      published: moment(message.created_at).format("MMMM Do, YYYY"),
     })
   }
   return posts
