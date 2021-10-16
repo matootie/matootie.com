@@ -4,6 +4,9 @@ import { PageMeta, getPageMeta, HomePage, getHomePage } from "@lib/pages"
 import logo from "@public/logo.png"
 
 import Layout from "@components/layout"
+import Link from "next/link"
+
+import styles from "@styles/home.module.css"
 
 interface HomeProps {
   meta: PageMeta
@@ -23,10 +26,19 @@ export const getStaticProps: GetStaticProps<HomeProps> = async () => {
 }
 
 export default function Home({ meta, data }: HomeProps) {
+  const links = [
+    {
+      name: "Projects",
+      href: "/projects",
+    },
+    {
+      name: "Updates",
+      href: "/updates",
+    },
+  ]
   return (
     <Layout meta={meta}>
       <div className="flex flex-col justify-center items-center h-screen">
-        <h1 className="text-gray-800 font-bold text-4xl mb-7">{data.title}</h1>
         <Image
           src={logo}
           objectFit="contain"
@@ -35,6 +47,15 @@ export default function Home({ meta, data }: HomeProps) {
           priority={true}
           alt="matootie's logo, the blue grapes."
         />
+        {links.length > 0 && (
+          <span className={styles.nav}>
+            {links.map((link) => (
+              <Link key={link.name} href={link.href}>
+                <a>{link.name}</a>
+              </Link>
+            ))}
+          </span>
+        )}
       </div>
     </Layout>
   )
