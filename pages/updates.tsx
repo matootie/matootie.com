@@ -10,6 +10,7 @@ import {
 import { getPosts, Post } from "@lib/posts"
 
 import Layout from "@components/layout"
+import Breadcrumbs from "@components/breadcrumbs"
 
 interface UpdatesProps {
   meta: PageMeta
@@ -32,8 +33,16 @@ export const getStaticProps: GetStaticProps<UpdatesProps> = async () => {
 }
 
 export default function Updates({ meta, data, posts }: UpdatesProps) {
+  const links = [
+    {
+      name: "Updates",
+      href: "/updates",
+      current: true,
+    },
+  ]
   return (
     <Layout meta={meta}>
+      <Breadcrumbs links={links} />
       <div className="relative px-4 sm:px-6 lg:px-8 mt-16 mb-10">
         <div className="text-lg max-w-prose mx-auto">
           <h1 className="mt-2 block text-4xl text-center leading-10 font-extrabold tracking-tight text-gray-900 sm:text-5xl">
