@@ -5,8 +5,12 @@ export interface Config {
   twitter: string
 }
 
+/**
+ * Get the global site config from the API.
+ * @returns Config data.
+ */
 export async function getConfig(): Promise<Config> {
-  const data = await api(`
+  const data = await graphql(`
     query {
       config {
         name
@@ -21,7 +25,13 @@ export async function getConfig(): Promise<Config> {
   return result
 }
 
-export async function api(query: string, variables?: any): Promise<any> {
+/**
+ * Make a request to the API using GraphQL.
+ * @param query The GraphQL query.
+ * @param variables Any GraphQL query variables.
+ * @returns The response body.
+ */
+export async function graphql(query: string, variables?: any): Promise<any> {
   const url = `${API_URL}/graphql`
   const response = await fetch(url, {
     method: "POST",
@@ -37,13 +47,22 @@ export async function api(query: string, variables?: any): Promise<any> {
   return data.data
 }
 
-export async function restGet(path: string): Promise<any> {
+/**
+ * Make a request to the API using REST.
+ * @param path The endpoint to hit.
+ * @param options Options to pass to the underlying fetch call.
+ * @returns The response body.
+ */
+export async function rest(path: string, options: RequestInit): Promise<any> {
   const url = `${API_URL}${path}`
-  const response = await fetch(url, {
-    method: "GET",
+  const forcedOptions: RequestInit = {
     headers: {
       "Content-Type": "application/json",
     },
+  }
+  const response = await fetch(url, {
+    ...options,
+    ...forcedOptions,
   })
   const data = await response.json()
   return data.data

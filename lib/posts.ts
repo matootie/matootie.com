@@ -2,7 +2,7 @@ import { remark } from "remark"
 import html from "remark-html"
 import moment from "moment"
 
-import { api, restGet } from "@lib/common"
+import { graphql, rest } from "@lib/common"
 
 export interface Post {
   id: number
@@ -19,7 +19,7 @@ export async function getPosts({
   limit = 2,
   offset = 0,
 }: GetPostsOptions): Promise<Post[]> {
-  const data = await api(`
+  const data = await graphql(`
     query {
       messages(
         sort:"created_at:DESC",
@@ -45,6 +45,8 @@ export async function getPosts({
 }
 
 export async function getPostsCount(): Promise<number> {
-  const result = await restGet("/messages/count")
+  const result = await rest("/messages/count", {
+    method: "GET",
+  })
   return result
 }

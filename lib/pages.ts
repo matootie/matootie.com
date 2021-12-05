@@ -1,4 +1,4 @@
-import { Config, api, getConfig } from "@lib/common"
+import { Config, getConfig, graphql } from "@lib/common"
 import { remark } from "remark"
 import html from "remark-html"
 
@@ -11,7 +11,7 @@ export interface PageMeta extends Config {
 }
 
 export async function getPageMeta(page: string): Promise<PageMeta> {
-  const data = await api(`
+  const data = await graphql(`
     query {
       ${page} {
         meta {
@@ -42,7 +42,7 @@ export interface HomePage {
 }
 
 export async function getHomePage(): Promise<HomePage> {
-  const data = await api(`
+  const data = await graphql(`
     query {
       home {
         title
@@ -61,7 +61,7 @@ export interface ProjectsOverviewPage {
 }
 
 export async function getProjectsOverviewPage(): Promise<ProjectsOverviewPage> {
-  const data = await api(`
+  const data = await graphql(`
     query {
       projectsOverview {
         title
@@ -79,7 +79,7 @@ export interface UpdatesOverviewPage {
 }
 
 export async function getUpdatesOverviewPage(): Promise<UpdatesOverviewPage> {
-  const data = await api(`
+  const data = await graphql(`
     query {
       updatesOverview {
         title

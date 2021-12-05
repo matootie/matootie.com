@@ -1,7 +1,7 @@
 import { remark } from "remark"
 import html from "remark-html"
 import plaintext from "remark-plain-text"
-import { api } from "@lib/common"
+import { graphql } from "@lib/common"
 
 export interface GetAllProjectsOutput {
   projects: {
@@ -12,7 +12,7 @@ export interface GetAllProjectsOutput {
 }
 
 export async function getAllProjects(): Promise<GetAllProjectsOutput> {
-  const response = await api(`
+  const response = await graphql(`
     query {
       projects {
         slug
@@ -61,7 +61,7 @@ export interface GetOneProjectOutput {
 export async function getOneProject({
   slug,
 }: GetOneProjectInput): Promise<GetOneProjectOutput> {
-  const response = await api(`
+  const response = await graphql(`
     query {
       projects(
         where: {

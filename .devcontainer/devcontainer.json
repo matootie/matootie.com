@@ -1,0 +1,20 @@
+{
+  "name": "Website",
+  "dockerComposeFile": "docker-compose.yml",
+  "service": "website",
+  "workspaceFolder": "/workspace",
+  "settings": {},
+  "extensions": [
+    "dbaeumer.vscode-eslint",
+    "csstools.postcss",
+    "esbenp.prettier-vscode",
+    "bradlc.vscode-tailwindcss"
+  ],
+  "forwardPorts": [3000],
+  "postCreateCommand": "npm install",
+  "remoteUser": "matootie",
+  "features": {
+    "git": "latest",
+    "git-lfs": "latest"
+  }
+}
