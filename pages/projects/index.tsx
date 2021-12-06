@@ -59,8 +59,8 @@ export default function Projects({ meta, data, projects }: ProjectsProps) {
         <div className="grid sm:grid-cols-2 gap-4 py-10 px-4 post-list max-w-3xl mx-auto">
           {projects.projects.map((project) => (
             <Link key={project.slug} href={`/projects/${project.slug}`}>
-              <a className="border border-blue-600 border-opacity-10 shadow rounded-xl p-4 transform hover:border-opacity-30 transition-colors group">
-                <h3 className="text-xl text-gray-900 font-bold mb-1 group-hover:text-blue-900 transition-colors">
+              <a className="border border-gray-600 border-opacity-10 shadow rounded-xl p-4 transform hover:border-opacity-30 transition-colors group">
+                <h3 className="text-xl text-gray-900 font-bold mb-1 transition-colors">
                   {project.name}
                 </h3>
                 <p className="text-gray-500 line-clamp-4">

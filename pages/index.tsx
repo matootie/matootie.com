@@ -38,16 +38,16 @@ export default function Home({ meta, data }: HomeProps) {
     <Layout meta={meta}>
       <div className="h-screen">
         <div className="flex flex-col justify-center items-center h-screen">
-          <div className="grid grid-cols-2 w-full max-w-4xl">
+          <div className="grid grid-cols-1 md:grid-cols-2 w-full h-full">
             <Link href="/projects">
-              <a className="bg-transparent hover:bg-red-500 h-48 flex justify-center items-center group transition-all hover:shadow-lg z-30">
+              <a className="bg-transparent hover:bg-red-500 h-full flex justify-center items-center group transition-all hover:shadow-lg z-30">
                 <p className="text-center font-bold text-gray-300 group-hover:text-white transition-colors uppercase text-4xl">
                   Projects
                 </p>
               </a>
             </Link>
             <Link href="/updates">
-              <a className="bg-transparent hover:bg-blue-500 h-48 flex justify-center items-center group transition-all hover:shadow-lg z-30">
+              <a className="bg-transparent hover:bg-blue-500 h-full flex justify-center items-center group transition-all hover:shadow-lg z-30">
                 <p className="text-center font-bold text-gray-300 group-hover:text-white transition-colors uppercase text-4xl">
                   Updates
                 </p>
@@ -55,13 +55,13 @@ export default function Home({ meta, data }: HomeProps) {
             </Link>
             <a
               href="https://github.com/matootie"
-              className="bg-transparent hover:bg-green-500 h-48 flex justify-center items-center group transition-all hover:shadow-lg z-30"
+              className="bg-transparent hover:bg-green-500 h-full flex justify-center items-center group transition-all hover:shadow-lg z-30"
             >
               <p className="text-center font-bold text-gray-300 group-hover:text-white transition-colors uppercase text-4xl">
                 GitHub
               </p>
             </a>
-            <div className="bg-transparent h-48 flex justify-center items-center z-30">
+            <div className="bg-transparent h-full flex justify-center items-center z-30">
               <p className="text-center font-bold text-gray-300 uppercase text-4xl">
                 ...
               </p>
