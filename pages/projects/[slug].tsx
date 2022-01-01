@@ -89,7 +89,10 @@ export default function Project(project: ProjectProps) {
           )}
           <div className="border border-opacity-5 rounded-xl shadow mt-16 p-8 flex flex-col space-y-16 max-w-4xl mx-auto">
             {project.iterations.map((iteration) => (
-              <div key={iteration.name}>
+              <div
+                id={iteration.name.replace(" ", "-").toLowerCase()}
+                key={iteration.name}
+              >
                 {iteration.url ? (
                   <a href={iteration.url} target="_blank" rel="noreferrer">
                     <h2 className="mt-2 flex text-2xl text-center leading-8 font-extrabold tracking-tight text-gray-900 sm:text-3xl justify-center items-center hover:underline">
