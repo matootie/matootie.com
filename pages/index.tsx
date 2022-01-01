@@ -53,9 +53,9 @@ export default function Home({ meta, data }: HomeProps) {
 
   return (
     <Layout meta={meta}>
-      <div className="min-h-screen flex flex-col lg:flex-row justify-center items-center max-w-7xl mx-auto">
+      <div className="min-h-screen flex flex-col lg:flex-row justify-center items-center max-w-4xl mx-auto">
         <div
-          className={`mx-auto flex justify-center items-center transition-all filter ${
+          className={`mx-auto my-10 lg:my-0 flex justify-center items-center transition-all filter ${
             activeColour === "none"
               ? "grayscale opacity-60 shadow-none"
               : "grayscale-0 opacity-100 shadow-lg"
