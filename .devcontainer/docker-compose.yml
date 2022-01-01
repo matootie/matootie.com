@@ -11,4 +11,4 @@ services:
     init: true
     command: sleep infinity
     hostname: website
-    user: matootie
+    user: node
