@@ -1,28 +1,20 @@
-import Document, {
-  DocumentContext,
-  Html,
-  Head,
-  Main,
-  NextScript,
-} from "next/document"
+/**
+ * Custom document
+ *
+ * https://nextjs.org/docs/advanced-features/custom-document
+ */
 
-class WebsiteDocument extends Document {
-  static async getInitialProps(ctx: DocumentContext) {
-    const initialProps = await Document.getInitialProps(ctx)
-    return initialProps
-  }
+// External imports.
+import { Head, Html, Main, NextScript } from "next/document"
 
-  render() {
-    return (
-      <Html lang="en_CA">
-        <Head />
-        <body>
-          <Main />
-          <NextScript />
-        </body>
-      </Html>
-    )
-  }
+export default function Document() {
+  return (
+    <Html lang="en_CA">
+      <Head />
+      <body>
+        <Main />
+        <NextScript />
+      </body>
+    </Html>
+  )
 }
-
-export default WebsiteDocument

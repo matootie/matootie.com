@@ -2,13 +2,9 @@ version: "3.9"
 services:
   website:
     build:
-      context: ..
-      dockerfile: .devcontainer/Dockerfile
-      args:
-        VARIANT: 16-bullseye
+      context: .
+      dockerfile: Dockerfile
     volumes:
       - ..:/workspace:cached
     init: true
     command: sleep infinity
-    hostname: website
-    user: node
