@@ -1,8 +1,7 @@
 {
   "eslintConfig": {
     "extends": [
-      "next/core-web-vitals",
-      "prettier"
+      "next/core-web-vitals"
     ]
   },
   "prettier": {
@@ -16,12 +15,6 @@
         "config": "./config/tailwind.config.js"
       },
       "autoprefixer": {}
-    }
-  },
-  "husky": {
-    "hooks": {
-      "pre-commit": "lint-staged",
-      "commit-msg": "commitlint --config config/commitlint.config.js --edit"
     }
   },
   "lint-staged": {
@@ -45,10 +38,12 @@
     "husky": "^8.0.1",
     "lint-staged": "^13.0.3",
     "postcss": "^8.4.16",
+    "prettier": "^2.7.1",
     "tailwindcss": "^3.1.8",
     "typescript": "4.8.3"
   },
   "scripts": {
-    "vercel-build": "next build"
+    "build": "next build",
+    "postinstall": "husky install config/husky"
   }
 }
