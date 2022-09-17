@@ -18,6 +18,12 @@
       "autoprefixer": {}
     }
   },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged",
+      "commit-msg": "commitlint --config config/commitlint.config.js --edit"
+    }
+  },
   "lint-staged": {
     "*": "prettier --check --ignore-unknown",
     "*.{js,ts}": "eslint"
